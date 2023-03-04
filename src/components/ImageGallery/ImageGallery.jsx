@@ -3,9 +3,9 @@ import css from '../ImageGallery/ImageGallery.module.css';
 
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
-const ImageGallery = ({ images, showModal }) => {
+const ImageGallery = ({ images, onShowModal }) => {
   const imageList = images.map(image => (
-    <ImageGalleryItem showModal={showModal} key={image.id} {...image} />
+    <ImageGalleryItem onShowModal={onShowModal} key={image.id} {...image} />
   ));
 
   return <ul className={css.gallery}>{imageList}</ul>;

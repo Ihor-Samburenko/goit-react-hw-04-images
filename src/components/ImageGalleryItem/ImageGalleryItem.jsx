@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import css from '../ImageGalleryItem/ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ webformatURL, tag, showModal, largeImageURL }) => {
+const ImageGalleryItem = ({
+  webformatURL,
+  tag,
+  onShowModal,
+  largeImageURL,
+}) => {
   return (
     <li className={css.item}>
       <img
-        onClick={() => showModal(largeImageURL, tag)}
+        onClick={() => onShowModal(largeImageURL, tag)}
         className={css.image}
         src={webformatURL}
         alt={tag}
@@ -20,5 +25,5 @@ ImageGalleryItem.propTypes = {
   webformatURL: PropTypes.string.isRequired,
   largeImageURL: PropTypes.string.isRequired,
   tag: PropTypes.string,
-  showModal: PropTypes.func,
+  onShowModal: PropTypes.func,
 };
