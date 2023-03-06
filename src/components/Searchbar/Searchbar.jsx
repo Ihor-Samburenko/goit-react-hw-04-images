@@ -5,17 +5,17 @@ import { HiSearch } from 'react-icons/hi';
 import css from '../Searchbar/Searchbar.module.css';
 
 const Searchbar = ({ onSubmit }) => {
-  const [search, setSearch] = useState('');
+  const [request, setRequest] = useState('');
 
   const handleChange = ({ target }) => {
     const { value } = target;
-    setSearch(value.toLowerCase());
+    setRequest(value.toLowerCase());
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(search);
-    setSearch('');
+    onSubmit(request);
+    setRequest('');
   };
 
   return (
@@ -27,7 +27,7 @@ const Searchbar = ({ onSubmit }) => {
 
         <input
           name="search"
-          value={search}
+          value={request}
           onChange={handleChange}
           className={css.input}
           type="text"

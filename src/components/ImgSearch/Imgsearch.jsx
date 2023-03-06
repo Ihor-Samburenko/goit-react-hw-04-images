@@ -41,13 +41,15 @@ const ImgSearch = () => {
     }
   }, [page, search]);
 
-  const updateSaerch = search => {
-    setSearch(search);
-    setPage(1);
-    setImages([]);
+  const updateSaerch = request => {
+    if (search !== request) {
+      setSearch(request);
+      setPage(1);
+      setImages([]);
+    }
   };
 
-  const LoadMore = () => {
+  const loadMore = () => {
     setPage(prevState => prevState + 1);
   };
 
@@ -70,6 +72,7 @@ const ImgSearch = () => {
       )}
 
       <Searchbar onSubmit={updateSaerch} />
+
       {loading && <Loader />}
       {error && <p>{error}</p>}
       {search !== '' && images.length === 0 && !loading && !error && (
@@ -77,7 +80,7 @@ const ImgSearch = () => {
       )}
       <ImageGallery images={images} onShowModal={onShowModal} />
       {images.length > 0 && images.length !== totalHits && (
-        <Button loadMore={LoadMore} />
+        <Button loadMore={loadMore} />
       )}
     </>
   );
