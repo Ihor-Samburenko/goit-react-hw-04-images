@@ -28,30 +28,3 @@ const Modal = ({ close, children }) => {
 };
 
 export default Modal;
-
-// class Modal extends Component {
-//   componentDidMount() {
-//     document.body.addEventListener('keydown', this.handleClose);
-//   }
-
-//   componentWillUnmount() {
-//     document.body.removeEventListener('keydown', this.handleClose);
-//   }
-
-//   handleClose = ({ target, currentTarget, code }) => {
-//     if (target === currentTarget || code === 'Escape') {
-//       this.props.close();
-//     }
-//   };
-
-//   render() {
-//     const { children } = this.props;
-
-//     return createPortal(
-//       <div onClick={this.handleClose} className={css.overlay}>
-//         <div className={css.modal}>{children}</div>
-//       </div>,
-//       modalRoot
-//     );
-//   }
-// }
