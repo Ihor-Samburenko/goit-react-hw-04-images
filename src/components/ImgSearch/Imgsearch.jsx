@@ -21,7 +21,7 @@ const ImgSearch = () => {
   const [tag, setTag] = useState('');
 
   useEffect(() => {
-    const fetch = async () => {
+    async function fetch() {
       try {
         setLoading(true);
         const { data } = await searchPost(search, page);
@@ -35,11 +35,13 @@ const ImgSearch = () => {
       } finally {
         setLoading(false);
       }
-    };
-    fetch();
+    }
+    if (search) {
+      fetch();
+    }
   }, [page, search]);
 
-  const updateSaerch = ({ search }) => {
+  const updateSaerch = search => {
     setSearch(search);
     setPage(1);
     setImages([]);
